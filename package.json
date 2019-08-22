@@ -1,0 +1,34 @@
+{
+  "author": {
+    "email": "rfcaio90@gmail.com",
+    "name": "Caio Rodrigues Fernandes",
+    "url": "https://github.com/rfcaio"
+  },
+  "dependencies": {
+    "angular": "1.6.10",
+    "bootstrap": "3.4.1"
+  },
+  "description": "A simple app based on Alura's Gulp course.",
+  "devDependencies": {
+    "husky": "1.0.0",
+    "jshint": "2.10.2"
+  },
+  "homepage": "https://github.com/rfcaio/gulp-alura-course#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
+  "license": "MIT",
+  "name": "gulp-alura-course",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rfcaio/gulp-alura-course.git"
+  },
+  "scripts": {
+    "lint": "jshint src/"
+  },
+  "version": "1.0.0"
+}

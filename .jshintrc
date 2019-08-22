@@ -1,0 +1,13 @@
+{
+  "browser": true,
+  "curly": true,
+  "devel": true,
+  "eqeqeq": true,
+  "globals": {
+    "angular": false
+  },
+  "jasmine": true,
+  "strict": true,
+  "undef": true,
+  "unused": true
+}
