@@ -1,3 +1,4 @@
+var browserSync = require('browser-sync').create();
 var del = require('del');
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
@@ -38,6 +39,20 @@ var scripts = function scripts () {
     .pipe(gulp.dest('dist'));
 };
 
+var serve = function serve () {
+  browserSync.init({
+    port: 3000,
+    server: {
+      baseDir: './src',
+      routes: {
+        '/vendor': 'node_modules'
+      }
+    }
+  });
+
+  gulp.watch('src/**/*').on('change', browserSync.reload);
+};
+
 var styles = function styles () {
   return gulp
     .src(['node_modules/bootstrap/dist/css/bootstrap.css', 'src/css/main.css'])
@@ -53,6 +68,7 @@ exports.clean = clean;
 exports.copy = copy;
 exports.html = html;
 exports.scripts = scripts;
+exports.serve = serve;
 exports.styles = styles;
 
 exports.default = build;

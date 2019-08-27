@@ -10,6 +10,7 @@
   },
   "description": "A simple app based on Alura's Gulp course.",
   "devDependencies": {
+    "browser-sync": "2.26.7",
     "del": "5.0.0",
     "gulp": "4.0.2",
     "gulp-clean-css": "4.2.0",
