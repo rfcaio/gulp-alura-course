@@ -1,3 +1,4 @@
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
@@ -73,6 +74,7 @@ var serve = function serve () {
 var styles = function styles () {
   return gulp
     .src(['node_modules/bootstrap/dist/css/bootstrap.css', 'src/css/main.css'])
+    .pipe(autoprefixer())
     .pipe(concat('style.css'))
     .pipe(cleanCSS())
     .pipe(gulp.dest('dist'));
