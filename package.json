@@ -11,15 +11,19 @@
   "description": "A simple app based on Alura's Gulp course.",
   "devDependencies": {
     "browser-sync": "2.26.7",
+    "csslint": "1.0.5",
     "del": "5.0.0",
     "gulp": "4.0.2",
     "gulp-clean-css": "4.2.0",
     "gulp-concat": "2.6.1",
+    "gulp-csslint": "1.0.1",
     "gulp-html-replace": "1.6.2",
+    "gulp-jshint": "2.1.0",
     "gulp-sourcemaps": "2.6.5",
     "gulp-uglify": "3.0.2",
     "husky": "1.0.0",
-    "jshint": "2.10.2"
+    "jshint": "2.10.2",
+    "jshint-stylish": "2.2.1"
   },
   "homepage": "https://github.com/rfcaio/gulp-alura-course#readme",
   "husky": {
@@ -37,7 +41,8 @@
   },
   "scripts": {
     "build": "gulp build",
-    "lint": "npm run lint:gulp && npm run lint:src",
+    "lint": "npm run lint:css && npm run lint:gulp && npm run lint:src",
+    "lint:css": "csslint src/",
     "lint:gulp": "jshint gulpfile.js",
     "lint:src": "jshint src/"
   },

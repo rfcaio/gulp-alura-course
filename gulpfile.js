@@ -1,9 +1,12 @@
 var browserSync = require('browser-sync').create();
-var del = require('del');
-var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
+var csslint = require('gulp-csslint');
+var del = require('del');
+var gulp = require('gulp');
 var htmlReplace = require('gulp-html-replace');
+var jshint = require('gulp-jshint');
+var jshintStylish = require('jshint-stylish');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
@@ -51,6 +54,20 @@ var serve = function serve () {
   });
 
   gulp.watch('src/**/*').on('change', browserSync.reload);
+
+  gulp.watch('src/css/**/*.css').on('change', function cssLinter (path) {
+    gulp
+      .src(path)
+      .pipe(csslint())
+      .pipe(csslint.formatter());
+  });
+
+  gulp.watch('src/js/**/*.js').on('change', function jsLinter (path) {
+    gulp
+      .src(path)
+      .pipe(jshint())
+      .pipe(jshint.reporter(jshintStylish));
+  });
 };
 
 var styles = function styles () {
