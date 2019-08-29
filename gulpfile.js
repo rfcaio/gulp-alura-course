@@ -11,6 +11,8 @@ var jshintStylish = require('jshint-stylish');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
+require('dotenv/config');
+
 /* jshint strict: false */
 
 var clean = function clean () {
@@ -45,7 +47,7 @@ var scripts = function scripts () {
 
 var serve = function serve () {
   browserSync.init({
-    port: 3000,
+    port: process.env.PORT || 3000,
     server: {
       baseDir: './src',
       routes: {
