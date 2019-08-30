@@ -46,7 +46,8 @@
     "lint": "npm run lint:css && npm run lint:gulp && npm run lint:src",
     "lint:css": "csslint src/",
     "lint:gulp": "jshint gulpfile.js",
-    "lint:src": "jshint src/"
+    "lint:src": "jshint src/",
+    "start": "gulp serve"
   },
   "version": "1.0.0"
 }
